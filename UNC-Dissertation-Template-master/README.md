@@ -14,6 +14,77 @@ It is intended to serve as a **practical, reproducible starting point** rather t
 
 ---
 
+## How to Use This Template
+
+### 1. Clone or Download
+Clone the repository or download it as a ZIP:
+
+```bash
+git clone https://github.com/jasper-mark/unc-dissertation-template-2026.git
+```
+### 2. Edit the content
+
+You do not need to modify the formatting.
+
+Focus on:
+ - Editing the chapter files (ch1.tex, ch2.tex, etc.)
+ - Editing appendix files (ap1.tex, ap2.tex)
+ - Updating front matter (frontmatter/pages.tex)
+
+Replace placeholder text with your own content.
+
+### 3. Add Your References
+All references are managed through a single file:
+``` diss.bib```
+You can export .bib entries directly from:
+ - EndNote
+ - Mendeley
+ - Zotero
+ - Google Scholar
+
+Then paste them into diss.bib.
+
+Citations are handled automatically using biblatex (AMA style).
+
+### 4. Use Glossaries and Acronyms
+
+Acronyms are defined in:
+```code
+common/acronyms.tex
+```
+Use them in your document with: \gls{ACRONYM}
+ - 	First use: full term + abbreviation
+ - Later uses: abbreviation only
+ - In supported PDF viewers (e.g., Adobe Acrobat), hovering shows the definition
+
+### 5. Compile the Document
+
+This template requires biber, not BibTeX.
+
+Typical compile sequence:
+	1.	pdflatex
+	2.	biber
+	3.	pdflatex
+	4.	pdflatex
+
+Most LaTeX editors (Overleaf, VS Code, TeXShop) can automate this.
+
+### 6. Final Checks Before Submission
+
+Before submitting:
+ - Verify margins, spacing, and formatting against current UNC guidelines
+ - Ensure all figures/tables are properly labeled
+ - Confirm bibliography compiles correctly
+ - Double-check front matter (committee, title page, abstract)
+### 7. What You Shouldn’t Change (Unless You Know Why)
+
+Avoid modifying:
+ - Core layout files in common/
+ - Chapter formatting definitions
+ - Spacing and margin configurations
+
+These were tuned to pass Graduate School formatting.
+
 ## Key Updates (2026 Version)
 
 ### Formatting & Layout
