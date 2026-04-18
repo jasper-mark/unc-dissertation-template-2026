@@ -1,0 +1,53 @@
+\chapter{Introduction}\label{chap:introduction}
+
+% This creates a chapter and assigns a label for cross-referencing:
+% you can later refer to it using \autoref{chap:introduction}
+
+\section{Purpose of This Template}
+
+This chapter demonstrates the basic structure of a dissertation written in \LaTeX{}. It shows how to organize text into chapters and sections, how to include citations, and how to use glossary terms consistently throughout a document.
+
+Sections (created using \texttt{\textbackslash section\{\}}) divide content into logical units. Each section should represent a coherent idea or topic.
+
+\section{Working with Citations}
+
+Citations are inserted using commands such as \texttt{\textbackslash supercite\{\}}. These commands pull references directly from your bibliography file (e.g., \texttt{.bib} file) and format them automatically.
+
+For example, you can cite prior work like this.\supercite{example_reference_1}
+
+Using citation commands ensures consistency in formatting and allows you to easily update or change citation styles without editing text manually.
+
+\section{Conceptual Writing Example}
+
+In many research domains, complex systems are characterized by interactions across multiple scales and levels of organization. Writing in an introduction should clearly motivate the problem, define key concepts, and situate the work within existing literature.\supercite{example_reference_2}
+
+This section demonstrates how narrative text, citations, and structure work together to form a cohesive argument.
+
+\section{Using Glossary Terms and Acronyms}
+
+Glossary terms are defined in a separate file (e.g., \texttt{common/acronyms.tex}) and referenced using the \texttt{\textbackslash gls\{\}} command.
+
+For example, \gls{UNC} refers to the Universirt of north carolina at chapel hill. But I could enter type "gls" again and now it is abbreviated \gls{UNC}.
+
+It also works with \gls{GDTBATH}, which is especially great when we beat DOOK in basketball. You'll hear everyone say \gls{GDTBATH}.
+
+One final example for \gls{HMSC}, our doctoral program. We like to say it the \gls{HMSC} program is interdisciplinary, and is housedin the \gls{UNC} school of medicine.
+
+On first use, the full term is typically displayed (e.g., “electroencephalography (EEG)”), and on subsequent uses, only the abbreviation appears. In adobe acrobat PDF viewers, hovering over the term will display its definition.
+
+This approach ensures consistent terminology throughout the document and is especially useful in fields with many abbreviations.
+
+\section{General Writing Structure}
+
+Structuring your writing in this way improves clarity and helps guide the reader through your argument.
+
+\section{Summary}
+
+This chapter demonstrated the foundational elements of writing in \LaTeX{}, including: \begin{inparaenum}[(i)]
+    \item Chapter and section organization
+    \item Citation usage with \texttt{\textbackslash supercite}
+    \item Glossary term integration with \texttt{\textbackslash gls}
+    \item General principles for structuring academic writing
+\end{inparaenum}
+
+These components form the basis for building more complex chapters in a dissertation.

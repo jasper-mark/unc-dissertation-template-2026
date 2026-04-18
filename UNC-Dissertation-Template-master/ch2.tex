@@ -1,0 +1,93 @@
+\chapter{Review of the Literature}\label{chap:literature_review}
+
+% Creates a chapter and allows referencing with \autoref{chap:literature_review}
+
+\section{Example Section}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.\supercite{example_reference_1}
+
+% \supercite{} inserts a citation from your .bib file
+
+The major components of this framework are summarized in \textbf{\autoref{tab:example_table}}.
+
+% \autoref{} automatically formats the reference as "Table X"
+% Always reference tables/figures in text before they appear
+
+\begin{table}[H]
+\setstretch{1.0} % Controls vertical spacing within the table
+\centering % Centers the table on the page
+
+\caption{Example Table Title for Demonstration Purposes. This caption appears in the List of Tables}
+% Caption appears above the table (standard for dissertations)
+
+\label{tab:example_table}
+% Label MUST come after caption for correct cross-referencing
+
+\begin{tabular}{p{3.1cm} p{3.5cm} p{6.55cm}}
+% Defines column layout:
+% p{} creates fixed-width columns with automatic text wrapping
+% This is preferred over l/c/r for long text in dissertations
+
+\hline
+\textbf{Category} & \textbf{Components} & \textbf{Description} \\
+\hline
+
+Example Row 1 
+& Example Elements 
+& Lorem ipsum dolor sit amet, consectetur adipiscing elit.\supercite{example_reference_1} 
+\\
+
+Example Row 2 
+& Example Elements 
+& Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\supercite{example_reference_2} 
+\\
+
+Example Row 3 
+& Example Elements 
+& Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.\supercite{example_reference_3} 
+\\
+
+\hline
+\hline
+
+\multicolumn{3}{p{.95\linewidth}}{
+\textit{Note.} This row spans all columns using \texttt{\textbackslash multicolumn}. 
+Use this section for abbreviations, clarifications, or additional notes about the table.
+}
+\\
+
+\hline
+\end{tabular}
+\end{table}
+
+% Key table concepts:
+% - Columns are separated by &
+% - Rows end with \\
+% - \hline creates horizontal rules
+% - \multicolumn merges columns across the table width
+% - p{} columns prevent text overflow and improve readability
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+\section{Another Section}
+
+An example glossary term is \gls{HMSC}.
+
+% \gls{} pulls from the glossary file (e.g., common/acronyms.tex)
+% First use = full term, subsequent uses = abbreviation
+
+Example inline math: $p < 0.05$
+
+% Inline math is used within a sentence
+
+Example display math:
+
+\[
+y = mx + b
+\]
+
+% Display math is centered and used for emphasis or equations
+
+\section{Summary}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.

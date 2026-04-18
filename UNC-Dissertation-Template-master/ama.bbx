@@ -1,0 +1,162 @@
+% \ProvidesFile{ama.bbx}[2021/07/09 v0.1 biblatex bibliography style]
+
+% \RequireBibliographyStyle{numeric}
+
+% \ExecuteBibliographyOptions{sorting=none, maxbibnames=6, minbibnames=3, doi=false, isbn=false, url=false, uniquename=false, uniquelist=false, giveninits=true, terseinits=true}
+
+% \DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished]{title}{{#1\isdot}}
+% \renewbibmacro{in:}{}
+% \DeclareFieldFormat{pages}{#1}
+% \renewcommand*{\bibpagespunct}{\addcolon}
+
+% \renewbibmacro*{journal+issuetitle}{%
+%     \usebibmacro{journal}%
+%     \setunit*{\addperiod\addspace}%
+%     \iffieldundef{series}
+%     {}
+%     {\newunit
+%         \printfield{series}%
+%         \setunit{\addspace}}%
+%     \usebibmacro{issue+date}%
+%     \setunit{\addsemicolon\addspace}%
+%     \printfield{volume}%
+%     (\printfield{number})%
+%     \setunit{\addcolon\space}%
+%     \usebibmacro{issue}%
+%     \newunit%
+% }
+
+% % Print only the year
+% \renewbibmacro*{issue+date}{%
+%     \printfield{year}%
+% }
+
+% % Remove "and" from list of authors
+% \renewcommand*{\finalnamedelim}{\multinamedelim}
+
+% % Bib list with num-dot format
+% \DeclareFieldFormat{labelnumberwidth}{#1\adddot}
+% \DeclareFieldFormat{shorthandwidth}{\mkbibparens{#1}}
+
+% % Make author names Title Case
+% \def\FirstLetterUppercase#1{\expandafter\FirstLetterUppercase@i#1 \@nil}
+% \def\FirstLetterUppercase@i#1#2 #3\@nil{%
+%   \MakeUppercase{#1}\MakeLowercase{#2}
+%   \ifx\relax#3\relax\def\next@i{}\else\def\next@i{\expandafter\FirstLetterUppercase@i#3\@nil}\fi%
+%   \next@i}
+
+% \InitializeBibliographyStyle{\renewcommand*{\mkbibnamefamily}[1]{\FirstLetterUppercase{#1}}}
+
+
+
+\ProvidesFile{ama.bbx}[2026/03/21 Robust AMA bibliography style]
+
+\RequireBibliographyStyle{numeric}
+
+\ExecuteBibliographyOptions{
+  sorting=none,
+  maxbibnames=6,
+  minbibnames=3,
+  doi=false,
+  isbn=false,
+  url=false,
+  uniquename=false,
+  uniquelist=false,
+  giveninits=true,
+  terseinits=true
+}
+
+% --- Title ---
+\DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished]
+  {title}{\iffieldundef{title}{}{{#1\isdot}}}
+
+\renewbibmacro{in:}{}
+
+% --- Pages ---
+\DeclareFieldFormat{pages}{#1}
+\renewcommand*{\bibpagespunct}{\addcolon}
+
+% --- Journal block ---
+\renewbibmacro*{journal+issuetitle}{%
+  \usebibmacro{journal}%
+  \setunit*{\addperiod\addspace}%
+  \printfield{year}%
+  \setunit{\addsemicolon\addspace}%
+  \printfield{volume}%
+  \iffieldundef{number}
+    {}
+    {\printtext[parens]{\printfield{number}}}%
+  \setunit{\addcolon\space}%
+  \printfield{pages}%
+  \newunit%
+}
+
+% --- Remove "and" ---
+\renewcommand*{\finalnamedelim}{\multinamedelim}
+
+% --- Label format ---
+\DeclareFieldFormat{labelnumberwidth}{#1\adddot}
+
+% =========================
+% ===== DRIVERS ===========
+% =========================
+
+% --- ARTICLE DRIVER ---
+\DeclareBibliographyDriver{article}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \setunit{\addperiod\space}%
+  \printfield{title}%
+  \setunit{\addperiod\space}%
+  \usebibmacro{journal+issuetitle}%
+  \newunit\newblock
+  \usebibmacro{finentry}%
+}
+
+% --- BOOK DRIVER ---
+\DeclareBibliographyDriver{book}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \setunit{\addperiod\space}%
+  \printfield{title}%
+  \setunit{\addperiod\space}%
+  \printlist{publisher}%
+  \setunit{\addcomma\space}%
+  \printfield{year}%
+  \newunit\newblock
+  \usebibmacro{finentry}%
+}
+
+% --- INPROCEEDINGS DRIVER ---
+\DeclareBibliographyDriver{inproceedings}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \setunit{\addperiod\space}%
+  \printfield{title}%
+  \setunit{\addperiod\space}%
+  \printfield{booktitle}%
+  \setunit{\addperiod\space}%
+  \printfield{year}%
+  \newunit\newblock
+  \usebibmacro{finentry}%
+}
+
+% --- THESIS DRIVER ---
+\DeclareBibliographyDriver{thesis}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \setunit{\addperiod\space}%
+  \printfield{title}%
+  \setunit{\addperiod\space}%
+  \printfield{type}%
+  \setunit{\addcomma\space}%
+  \printfield{institution}%
+  \setunit{\addcomma\space}%
+  \printfield{year}%
+  \newunit\newblock
+  \usebibmacro{finentry}%
+}
